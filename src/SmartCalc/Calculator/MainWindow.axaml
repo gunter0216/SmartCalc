@@ -1,0 +1,236 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:avalonia="http://oxyplot.org/avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Calculator.MainWindow"
+        Title="Calculator"
+        Width="550"
+        MinWidth="550"
+        MaxWidth="550"
+        Height="450"
+        MinHeight="450"
+        MaxHeight="450">
+
+  <Window.Styles>
+    <Style Selector="Button">
+      <Setter Property="Margin" Value="4"></Setter>
+      <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+      <Setter Property="VerticalAlignment" Value="Center"></Setter>
+      <Setter Property="HorizontalContentAlignment" Value="Center" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+      <Setter Property="Width" Value="60"></Setter>
+      <Setter Property="Height" Value="60"></Setter>
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="Margin" Value="4"></Setter>
+      <Setter Property="HorizontalContentAlignment" Value="Left" />
+      <Setter Property="VerticalContentAlignment" Value="Center" />
+    </Style>
+  </Window.Styles>
+
+  <StackPanel Spacing="5">
+    <Panel Width="550" Height="450"
+           VerticalAlignment="Top">
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+          <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Button Content="?"
+                Width="30"
+                Height="30"
+                Margin="2"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Command="{Binding OpenDocumentation}"
+                Grid.Row="0" Grid.Column="7"/>
+
+        <TextBox Text="{Binding FormulaText}" Watermark="0"
+                 Margin="4,4,40,4"
+                 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="8"/>
+        <Button Content="sin"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="sin("
+                Grid.Row="1" Grid.Column="0"/>
+        <Button Content="asin"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="asin("
+                Grid.Row="1" Grid.Column="1"/>
+        <Button Content="sqrt"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="sqrt("
+                Grid.Row="1" Grid.Column="2"/>
+        <Button Content="("
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="("
+                Grid.Row="1" Grid.Column="3"/>
+        <Button Content=","
+                Command="{Binding AddTextInEntry}"
+                CommandParameter=","
+                Grid.Row="1" Grid.Column="4"/>
+        <Button Content=")"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter=")"
+                Grid.Row="1" Grid.Column="5"/>
+        <Button Content="rm last"
+                Command="{Binding RemoveLastSymbolInEntry}"
+                Grid.Row="1" Grid.Column="6" Grid.ColumnSpan="2" Width="128"/>
+
+        <Button Content="cos"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="cos("
+                Grid.Row="2" Grid.Column="0"/>
+        <Button Content="acos"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="acos("
+                Grid.Row="2" Grid.Column="1"/>
+        <Button Content="mod"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="mod"
+                Grid.Row="2" Grid.Column="2"/>
+        <Button Content="7"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="7"
+                Grid.Row="2" Grid.Column="3"/>
+        <Button Content="8"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="8"
+                Grid.Row="2" Grid.Column="4"/>
+        <Button Content="9"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="9"
+                Grid.Row="2" Grid.Column="5"/>
+        <Button Content="/"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="/"
+                Grid.Row="2" Grid.Column="6"/>
+        <Button Content="C"
+                Command="{Binding RemoveTextInEntry}"
+                Grid.Row="2" Grid.Column="7"/>
+
+        <Button Content="tan"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="tan("
+                Grid.Row="3" Grid.Column="0"/>
+        <Button Content="atan"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="atan("
+                Grid.Row="3" Grid.Column="1"/>
+        <Button Content="x"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="x"
+                Grid.Row="3" Grid.Column="2"/>
+        <Button Content="4"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="4"
+                Grid.Row="3" Grid.Column="3"/>
+        <Button Content="5"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="5"
+                Grid.Row="3" Grid.Column="4"/>
+        <Button Content="6"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="6"
+                Grid.Row="3" Grid.Column="5"/>
+        <Button Content="*"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="*"
+                Grid.Row="3" Grid.Column="6"/>
+        <Button Content="="
+                Command="{Binding OnButtonEqualsClicked}"
+                Grid.Row="3" Grid.Column="7" Grid.RowSpan="3" Height="192"/>
+
+        <Button Content="log"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="log("
+                Grid.Row="4" Grid.Column="0"/>
+        <Button Content="ln"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="ln("
+                Grid.Row="4" Grid.Column="1"/>
+        <Button Content="^"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="^"
+                Grid.Row="4" Grid.Column="2"/>
+        <Button Content="1"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="1"
+                Grid.Row="4" Grid.Column="3"/>
+        <Button Content="2"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="2"
+                Grid.Row="4" Grid.Column="4"/>
+        <Button Content="3"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="3"
+                Grid.Row="4" Grid.Column="5"/>
+        <Button Content="+"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="+"
+                Grid.Row="4" Grid.Column="6"/>
+
+        <TextBox Watermark="X:"
+                 Text="{Binding XText}"
+                 Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button Content="create graph"
+                Command="{Binding CreateGraph}"
+                Grid.Row="5" Grid.Column="2" Grid.ColumnSpan="2" Width="128"/>
+        <Button Content="0"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="0"
+                Grid.Row="5" Grid.Column="4"/>
+        <Button Content="."
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="."
+                Grid.Row="5" Grid.Column="5"/>
+        <Button Content="-"
+                Command="{Binding AddTextInEntry}"
+                CommandParameter="-"
+                Grid.Row="5" Grid.Column="6"/>
+
+        <Button Content="History "
+                Command="{Binding ShowHistory}"
+                Width="280"
+                Height="50"
+                Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="6"/>
+        <Button Content="Clear history "
+                Command="{Binding ClearHistory}"
+                Width="120"
+                Height="50"
+                Grid.Row="6" Grid.Column="6" Grid.ColumnSpan="2"/>
+      </Grid>
+    </Panel>
+    <Panel Width="550" Height="200"
+           VerticalAlignment="Top">
+      <ListBox Items="{Binding HistoryList}"
+               Selection="{Binding Selection}"
+               Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="6">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <Border CornerRadius="4" Padding="4">
+              <TextBlock Text="{Binding}"/>
+            </Border>
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Panel>
+  </StackPanel>
+</Window>
