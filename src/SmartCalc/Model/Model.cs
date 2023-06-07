@@ -5,7 +5,6 @@ namespace Model
 {
     public static class Model
     {
-        //[DllImport("Resources\\DLLHueta.dll", CallingConvention = CallingConvention.StdCall)]
         [DllImport("ModelDll\\build\\ModelDll.dll", CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public unsafe extern static double Calc(StringBuilder str, double x = 0);
 
